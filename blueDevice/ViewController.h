@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIPopoverListView.h"
+#import "SerialGATT.h"
+@interface ViewController : UIViewController<BTSmartSensorDelegate>
+{
+    Byte sendBuffer[1];          //发送数据数组；
+}
+@property(strong,nonatomic)SerialGATT *sensor;
 
-@interface ViewController : UIViewController
+-(void) getCharValueUpdated:(NSString *)UUID value:(NSData *)data;
++(ViewController *)sharedInstanceMethod;
 
 @end
